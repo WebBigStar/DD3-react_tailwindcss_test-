@@ -1,3 +1,5 @@
+import { count } from 'console';
+import { stat } from 'fs';
 import React, { useState, useEffect } from 'react'
 import Keyboard from '../components/keyboard';
 
@@ -6,82 +8,98 @@ const YELLOW = "bg-yellow-500";
 const GRAY = "bg-gray-500";
 const DEFAULT_BG = "bg-gray-100";
 const DEFAULT_LIST = [
-  { id: 0, value: "", class: DEFAULT_BG },
-  { id: 1, value: "", class: DEFAULT_BG },
-  { id: 2, value: "", class: DEFAULT_BG },
-  { id: 3, value: "", class: DEFAULT_BG },
-  { id: 4, value: "", class: DEFAULT_BG },
-  { id: 5, value: "", class: DEFAULT_BG },
-  { id: 6, value: "", class: DEFAULT_BG },
-  { id: 7, value: "", class: DEFAULT_BG },
-  { id: 8, value: "", class: DEFAULT_BG },
-  { id: 9, value: "", class: DEFAULT_BG },
-  { id: 10, value: "", class: DEFAULT_BG },
-  { id: 11, value: "", class: DEFAULT_BG },
-  { id: 12, value: "", class: DEFAULT_BG },
-  { id: 13, value: "", class: DEFAULT_BG },
-  { id: 14, value: "", class: DEFAULT_BG },
-  { id: 15, value: "", class: DEFAULT_BG },
-  { id: 16, value: "", class: DEFAULT_BG },
-  { id: 17, value: "", class: DEFAULT_BG },
-  { id: 18, value: "", class: DEFAULT_BG },
-  { id: 19, value: "", class: DEFAULT_BG },
-  { id: 20, value: "", class: DEFAULT_BG },
-  { id: 21, value: "", class: DEFAULT_BG },
-  { id: 22, value: "", class: DEFAULT_BG },
-  { id: 23, value: "", class: DEFAULT_BG },
-  { id: 24, value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
+  { value: "", class: DEFAULT_BG },
 ];
 
-function Home({ words, onInitModal, onStatModal, onChange }: any) {
-  const [input, setInput] = useState("");
+function Home({ words, onInitModal, onStatModal, onChange, onComplete }: any) {
+  const [inputs, setInputs] = useState("");
   const [pressedKey, setPressedKey] = useState("");
   const [wordList, setWordList] = useState(DEFAULT_LIST);
-  const defaultTemper: any[] = []
-  const [temper, setTemper] = useState(defaultTemper);
+  const [status, setStatus] = useState(false);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!(input == ""))
-      validateInputCharacter();
-  }, [input])
-
+    validateInputsCharacter();
+  }, [inputs])
   useEffect(() => {
-    console.log("word list changed")
-  }, [wordList])
-
-  const validateInputCharacter = async () => {
-    console.log("wordList", wordList);
-    let originText = words.join('');
-    let cIndex = input.lastIndexOf(pressedKey);
+    if (count > 4) {
+      setStatus(true);
+    }
+  }, [count])
+  useEffect(() => {
+    if (status) completePlay();
+  }, [status])
+  const validateInputsCharacter = () => {
+    let temp = wordList;
+    let cIndex = (pressedKey == "{back}") ? inputs.length : inputs.length - 1;
+    var item = { value: "", class: DEFAULT_BG }
 
     if (cIndex > -1) {
-      var wIndex = Math.floor(cIndex / 5);
-      var item = { id: cIndex, value: "", class: DEFAULT_BG }
-
-      if (originText[cIndex] == pressedKey) {
-        item = { id: cIndex, value: pressedKey, class: GREEN }  //same
-      } else if (words[wIndex].lastIndexOf(pressedKey) > -1) {
-        item = { id: cIndex, value: pressedKey, class: YELLOW } //include
+      var wIndex = cIndex % 5;
+      if (words[0][wIndex] == pressedKey) {
+        item = { value: pressedKey, class: GREEN }  //same
+        setCount(count => count + 1)
+      } else if (words[0].lastIndexOf(pressedKey) > -1) {
+        if (count) setCount(count => count - 1);
+        item = { value: pressedKey, class: YELLOW } //include
       } else {
-        item = { id: cIndex, value: pressedKey, class: GRAY } //never
+        if (count) setCount(count => count - 1);
+        if (pressedKey !== "{back}")
+          item = { value: pressedKey, class: GRAY } //never
       }
+      temp[cIndex] = item;
     }
-  }
-  const validate = () => {
-    let letters = input.split("");
-    let list = { ...DEFAULT_LIST, ...letters }.values();
-    console.log(list);
+
+    setWordList([...temp]);
   }
   const onKeyPress = (button: any) => {
     setPressedKey(button);
-    console.log("Button pressed", button);
-    if (button === "{enter}") console.log("enter key pressed");
-    else if (button === "{back}") {
-      setInput(input => input.substring(0, input.length))
+    if (button === "{enter}") {
+      completePlay();
+    } else if (button === "{back}") {
+      setInputs(inputs => inputs.substring(0, inputs.length - 1))
     } else {
-      setInput(input => input + button);
+      if (inputs.length < 25) {
+        setInputs(inputs => inputs + button);
+      }
     }
   };
+  const completePlay = () => {
+    onComplete(status);
+    setInputs("");
+    setPressedKey("");
+    setWordList([...DEFAULT_LIST]);
+    setCount(0);
+    setStatus(false); 
+  }
+  const chunk = (arr: any, size: number) =>
+    Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+      arr.slice(i * size, i * size + size)
+    );
   return (
     <div className="h-screen w-full flex items-center justify-center bg-white-300 flex-col dark:bg-gray-900">
       <div className="w-1/3 flex justify-between rounded bg-gray-100 p-5 rounded-lg mt-4 text-white dark:bg-gray-500">
@@ -104,66 +122,15 @@ function Home({ words, onInitModal, onStatModal, onChange }: any) {
         </div>
       </div>
       <div className="w-1/4 p-5 m-10">
-        <div className="flex justify-around mb-3">
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-        </div>
-        <div className="flex justify-around mb-3">
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-        </div>
-        <div className="flex justify-around mb-3">
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-        </div>
-        <div className="flex justify-around mb-3">
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-        </div>
-        <div className="flex justify-around mb-3">
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-          <div className="w-76 h-75 bg-back rounded-5">
-          </div>
-        </div>
+        {chunk(wordList, 5).map((word: any, k: any) => {
+          return (
+            <div className="flex justify-around mb-3" key={"row" + k}>
+              {word.map((letter: any, key: any) => {
+                return <div className={`w-76 h-75 bg-back rounded-5 ${letter.class}`} id={"box" + letter.id}>{letter.value}</div>
+              })}
+            </div>
+          );
+        })}
       </div>
       <div className="w-1/3 text-gray-900 flex justify-center items-center">
         <Keyboard

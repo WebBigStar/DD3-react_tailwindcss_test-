@@ -14,11 +14,12 @@ function App() {
   const [success, setSuccess] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [complete, setComplete] = useState(false);
-  
+
   const getRandomWords = () => {
     var randomWords = require('../src/helpers/ramdom-words');
-    var wordlist = randomWords({ exactly: 5, maxLength: 5, formatter: (word: string) => word.toUpperCase() });
+    var wordlist = randomWords({ exactly: 1, maxLength: 5, formatter: (word: string) => word.toUpperCase() });
     setWords(wordlist);
+    console.log(wordlist);
   }
 
   const changeShowModal = () => {
@@ -27,16 +28,23 @@ function App() {
   const changeStatShowModal = () => {
     setStatShowModal(!statShowModal);
   }
-
+  const completeGame = (status: any) => {
+    setSuccess(status);
+    setStatShowModal(true);
+    setPlays(plays => plays + 1);
+    setSeconds(0);
+    if (status) setVictories(victories => victories + 1);
+  }
   useEffect(() => {
-    setShowModal(true);
+    // setShowModal(true);
+    getRandomWords();
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1)
     }, 1000)
 
     const intervalID = setInterval(() => {
       getRandomWords();
-    }, 5 * 1000);
+    }, 5 * 60 * 1000);
 
     return () => {
       clearInterval(intervalID)
@@ -60,9 +68,7 @@ function App() {
         onInitModal={changeShowModal}
         onStatModal={changeStatShowModal}
         onChange={() => setDarkToggle(!darkToggle)}
-        onSuccess={() => setSuccess(true)}
-        onIncreaseVictor={() => setVictories(victories => victories + 1)}
-        onIncreasePlay={() => setPlays(plays => plays + 1)}
+        onComplete={completeGame}
       />
     </div>
   );
