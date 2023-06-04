@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const StatModal = ({ showModal, onClose, seconds, victorNumber, playNumber, success }: any) => {
+const StatModal = ({ showModal, onClose, seconds, victorNumber, playNumber, success, word }: any) => {
     const formatTime = (time: any) => {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
@@ -25,7 +25,7 @@ const StatModal = ({ showModal, onClose, seconds, victorNumber, playNumber, succ
                                         <p className='text-21'>Victorias</p>
                                     </div>
                                 </div>
-                                {success && <p className='text-19 mt-36'> La palabra era: PERRO</p>}
+                                {!success && <p className='text-19 mt-36'> La palabra era: {word}</p>}
                                 <p className='text-19 mt-16'>SIGUIENTE PALABRA</p>
                                 <p className='text-24 font-bold mt-3 mb-5'>{formatTime(seconds)}</p>
                                 <button

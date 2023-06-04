@@ -94,7 +94,7 @@ function Home({ words, onInitModal, onStatModal, onChange, onComplete }: any) {
     setPressedKey("");
     setWordList([...DEFAULT_LIST]);
     setCount(0);
-    setStatus(false); 
+    setStatus(false);
   }
   const chunk = (arr: any, size: number) =>
     Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -126,7 +126,9 @@ function Home({ words, onInitModal, onStatModal, onChange, onComplete }: any) {
           return (
             <div className="flex justify-around mb-3" key={"row" + k}>
               {word.map((letter: any, key: any) => {
-                return <div className={`w-76 h-75 bg-back rounded-5 ${letter.class}`} id={"box" + letter.id}>{letter.value}</div>
+                return <div className={`w-76 h-75 bg-back rounded-5 flex justify-center items-center ${letter.class}`} id={"box" + letter.id}>
+                  <p className='text-28 font-bold text-white'>{letter.value}</p>
+                </div>
               })}
             </div>
           );

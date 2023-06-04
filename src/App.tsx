@@ -62,6 +62,7 @@ function App() {
         playNumber={plays}
         success={success}
         seconds={seconds}
+        word={words[0]}
       />
       <Home
         words={words}
