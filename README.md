@@ -6,11 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
-git clone https://github.com/WebBigStar/DD3-react_tailwindcss_test-.git
-cd DD3-react_tailwindcss_test-
-npm i
-npm start
+### `Run project`
+git clone https://github.com/WebBigStar/DD3-react_tailwindcss_test-.git \
+cd DD3-react_tailwindcss_test- \
+npm i \
+npm start \
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
