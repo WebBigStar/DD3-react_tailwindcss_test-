@@ -4,125 +4,125 @@ function Keyboard({ onKeyPress }: any) {
     return (
         <div className="w-full p-2 bg-keyback rounded">
             <div className="flex justify-between mt-8 ml-43 mr-52">
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white "
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white "
                     onClick={() => onKeyPress("Q")}>
                     <p className="font-roboto font-semibold text-18">Q</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("W")}>
                     <p className="font-roboto font-semibold text-18">W</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("E")}>
                     <p className="font-roboto font-semibold text-18">E</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("R")}>
                     <p className="font-roboto font-semibold text-18">R</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("T")}>
                     <p className="font-roboto font-semibold text-18">T</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("Y")}>
                     <p className="font-roboto font-semibold text-18">Y</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("U")}>
                     <p className="font-roboto font-semibold text-18">U</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("I")}>
                     <p className="font-roboto font-semibold text-18">I</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("O")}>
                     <p className="font-roboto font-semibold text-18">O</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("P")}>
                     <p className="font-roboto font-semibold text-18">P</p>
                 </button>
             </div>
             <div className="flex justify-between mt-8 ml-68 mr-36">
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("A")}>
                     <p className="font-roboto font-semibold text-18">A</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("S")}>
                     <p className="font-roboto font-semibold text-18">S</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("D")}>
                     <p className="font-roboto font-semibold text-18">D</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("F")}>
                     <p className="font-roboto font-semibold text-18">F</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("G")}>
                     <p className="font-roboto font-semibold text-18">G</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("H")}>
                     <p className="font-roboto font-semibold text-18">H</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("J")}>
                     <p className="font-roboto font-semibold text-18">J</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("K")}>
                     <p className="font-roboto font-semibold text-18">K</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("L")}>
                     <p className="font-roboto font-semibold text-18">L</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("Ñ")}>
                     <p className="font-roboto font-semibold text-18">Ñ</p>
                 </button>
             </div>
             <div className="flex justify-between mt-8 ml-20 mr-83">
-                <button className="w-71 h-51 rounded-5 dark:bg-gray-800 dark:text-white bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex justify-center items-center"
+                <button className="w-71 h-51 rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex justify-center items-center"
                     onClick={() => onKeyPress("{enter}")}>
                     <p className="font-roboto font-semibold text-15">
                         ENTER
                     </p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("Z")}>
                     <p className="font-roboto font-semibold text-18">Z</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("X")}>
                     <p className="font-roboto font-semibold text-18">X</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("C")}>
                     <p className="font-roboto font-semibold text-18">C</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("V")}>
                     <p className="font-roboto font-semibold text-18">V</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("B")}>
                     <p className="font-roboto font-semibold text-18">B</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("N")}>
                     <p className="font-roboto font-semibold text-18">N</p>
                 </button>
-                <button className="w-44 h-51 bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white"
+                <button className="w-44 h-51 bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex items-center justify-center rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white"
                     onClick={() => onKeyPress("M")}>
                     <p className="font-roboto font-semibold text-18">M</p>
                 </button>
-                <button className="w-71 h-51 rounded-5 dark:bg-gray-800 dark:text-white bg-onekey active:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex justify-center items-center"
+                <button className="w-71 h-51 rounded-5 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:active:bg-green-500 dark:text-white bg-onekey active:bg-green-500  hover:bg-gray-500 shadow hover:shadow-lg outline-none focus:outline-none flex justify-center items-center"
                     onClick={() => onKeyPress("{back}")}>
                     <svg
                         width="23"
