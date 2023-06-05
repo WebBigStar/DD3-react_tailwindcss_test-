@@ -5,7 +5,7 @@ import InstructionModal from './components/InstructionModal';
 import StatModal from './components/StatModal';
 
 function App() {
-  const [words, setWords] = useState([]);
+  const [word, setWord] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [statShowModal, setStatShowModal] = useState(false);
   const [darkToggle, setDarkToggle] = useState(false)
@@ -18,8 +18,7 @@ function App() {
   const getRandomWords = () => {
     var randomWords = require('../src/helpers/ramdom-words');
     var wordlist = randomWords({ exactly: 1, maxLength: 5, formatter: (word: string) => word.toUpperCase() });
-    setWords(wordlist);
-    console.log(wordlist);
+    setWord(wordlist[0]);
   }
 
   const changeShowModal = () => {
@@ -35,6 +34,7 @@ function App() {
     setSeconds(0);
     if (status) setVictories(victories => victories + 1);
   }
+
   useEffect(() => {
     // setShowModal(true);
     getRandomWords();
@@ -62,10 +62,10 @@ function App() {
         playNumber={plays}
         success={success}
         seconds={seconds}
-        word={words[0]}
+        word={word}
       />
       <Home
-        words={words}
+        word={word}
         onInitModal={changeShowModal}
         onStatModal={changeStatShowModal}
         onChange={() => setDarkToggle(!darkToggle)}

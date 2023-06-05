@@ -35,71 +35,103 @@ const DEFAULT_LIST = [
   { value: "", class: DEFAULT_BG },
 ];
 
-function Home({ words, onInitModal, onStatModal, onChange, onComplete }: any) {
+function Home({ word, onInitModal, onStatModal, onChange, onComplete }: any) {
   const [inputs, setInputs] = useState("");
   const [pressedKey, setPressedKey] = useState("");
   const [wordList, setWordList] = useState(DEFAULT_LIST);
   const [status, setStatus] = useState(false);
-  const [count, setCount] = useState(0);
+  const [findedWord, setFindedWord] = useState("-----");
+  const [deletedLetter, setDeletedLetter] = useState("");
 
   useEffect(() => {
     validateInputsCharacter();
+    if (inputs.length > 24) completePlay();
   }, [inputs])
-  useEffect(() => {
-    if (count > 4) {
-      setStatus(true);
-    }
-  }, [count])
+
   useEffect(() => {
     if (status) completePlay();
   }, [status])
+
+  useEffect(() => {
+    console.log('fined,', findedWord);
+    if (findedWord == word) setStatus(true)
+    else setStatus(false);
+  }, [findedWord])
+
+  useEffect(() => {
+    console.log('deleted,,,', deletedLetter);
+  }, [deletedLetter])
+
+  const syncOriginWord = (index: any) => {
+    if (pressedKey == "{back}") {
+      if (deletedLetter == findedWord.substr(-1)) {
+        setFindedWord(findedWord => findedWord.substr(0, findedWord.length - 1) + "-")
+      }
+    } else {
+      let temp = findedWord.split("");
+      console.log('temp', temp);
+      temp[index] = pressedKey;
+      setFindedWord(temp.join(""));
+    }
+  }
+
   const validateInputsCharacter = () => {
     let temp = wordList;
-    let cIndex = (pressedKey == "{back}") ? inputs.length : inputs.length - 1;
     var item = { value: "", class: DEFAULT_BG }
 
+    let cIndex = (pressedKey == "{back}") ? inputs.length : inputs.length - 1;
+
     if (cIndex > -1) {
-      var wIndex = cIndex % 5;
-      if (words[0][wIndex] == pressedKey) {
+      let wIndex = cIndex % 5;
+      if (word[wIndex] == pressedKey) {
         item = { value: pressedKey, class: GREEN }  //same
-        setCount(count => count + 1)
-      } else if (words[0].lastIndexOf(pressedKey) > -1) {
-        if (count) setCount(count => count - 1);
+        if (findedWord[wIndex] != pressedKey) {
+          syncOriginWord(wIndex)
+        }
+      } else if (word.lastIndexOf(pressedKey) > -1) {
         item = { value: pressedKey, class: YELLOW } //include
       } else {
-        if (count) setCount(count => count - 1);
-        if (pressedKey !== "{back}")
+        if (pressedKey != "{back}") {
           item = { value: pressedKey, class: GRAY } //never
+        } else syncOriginWord(-1);
       }
       temp[cIndex] = item;
     }
 
     setWordList([...temp]);
   }
+
   const onKeyPress = (button: any) => {
     setPressedKey(button);
     if (button === "{enter}") {
       completePlay();
-    } else if (button === "{back}") {
-      setInputs(inputs => inputs.substring(0, inputs.length - 1))
     } else {
-      if (inputs.length < 25) {
-        setInputs(inputs => inputs + button);
+      if (button === "{back}") {
+        let deleted = inputs.substr(-1);
+        setDeletedLetter(deleted);
+        setInputs(inputs => inputs.substr(0, inputs.length - 1))
+      } else {
+        if (inputs.length < 25) {
+          setInputs(inputs => inputs + button);
+        }
       }
     }
   };
+
   const completePlay = () => {
     onComplete(status);
     setInputs("");
     setPressedKey("");
     setWordList([...DEFAULT_LIST]);
-    setCount(0);
+    setFindedWord("-----")
+    setDeletedLetter("")
     setStatus(false);
   }
   const chunk = (arr: any, size: number) =>
     Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
       arr.slice(i * size, i * size + size)
     );
+
   return (
     <div className="h-screen w-full flex items-center justify-center bg-white-300 flex-col dark:bg-gray-900">
       <div className="w-1/3 flex justify-between rounded bg-gray-100 p-5 rounded-lg mt-4 text-white dark:bg-gray-500">
@@ -122,11 +154,11 @@ function Home({ words, onInitModal, onStatModal, onChange, onComplete }: any) {
         </div>
       </div>
       <div className="w-1/4 p-5 m-10">
-        {chunk(wordList, 5).map((word: any, k: any) => {
+        {chunk(wordList, 5).map((item: any, k: any) => {
           return (
             <div className="flex justify-around mb-3" key={"row" + k}>
-              {word.map((letter: any, key: any) => {
-                return <div className={`w-76 h-75 bg-back rounded-5 flex justify-center items-center ${letter.class}`} id={"box" + letter.id}>
+              {item.map((letter: any, key: any) => {
+                return <div className={`w-76 h-75 bg-back rounded-5 flex justify-center items-center ${letter.class}`} key={"box" + key}>
                   <p className='text-28 font-bold text-white'>{letter.value}</p>
                 </div>
               })}
